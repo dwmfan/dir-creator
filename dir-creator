@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define an array with the paths of directories to create
-directories=("~/Pix" "~/Pix/WallPaper" "~/Pix/Vids" "~/Dev" "~/Dev/Go" "~/Dev/C" "~/Dev/Script" "~/Doc" "~/Drive" "~/.local/src" "~/.local/bin")
+directories=("~/Pix" "~/Pix/Wallpaper" "~/Pix/Vids" "~/Dev" "~/Dev/Go" "~/Dev/C" "~/Dev/Script" "~/Doc" "~/Drive" "~/.local/src" "~/.local/bin")
 
 # Counter to iterate through the array
 index=0
