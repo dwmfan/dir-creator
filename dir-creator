@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Define an array with the paths of directories to create
+directories=("~/Pix" "~/Pix/WallPaper" "~/Pix/Vids" "~/Dev" "~/Dev/Go" "~/Dev/C" "~/Dev/Script" "~/Doc" "~/Drive" "~/.local/src" "~/.local/bin")
+
+# Counter to iterate through the array
+index=0
+
+# Total number of elements in the array
+total=${#directories[@]}
+
+# ANSI color codes
+GREEN='\033[0;32m'  # Green
+RED='\033[0;31m'    # Red
+RESET='\033[0m'     # Reset color
+
+# Loop through each directory in the array
+while [ $index -lt $total ]
+do
+  # Get the path of the current directory
+  directory="${directories[$index]}"
+
+  # Resolve the relative ~ to the absolute path
+  directory=$(eval echo "$directory")
+
+  # Check if the directory already exists
+  if [ ! -d "$directory" ]; then
+    # Create the directory and its parents if necessary
+    mkdir -p "$directory"
+    echo -e "[${GREEN}+${RESET}] - Directory created: ${GREEN}$directory${RESET}"
+  else
+    echo -e "[${RED}-${RESET}] - Directory already exists: ${RED}$directory${RESET}"
+  fi
+
+  # Move to the next directory
+  ((index++))
+done
